@@ -1,0 +1,38 @@
+.header {
+	height: 50px;
+	background-color: #f8f8f8;
+}
+
+.header .title {
+	height: 20px;
+	width: 80vw;
+	margin: 0px auto;
+	padding-top: 8px;
+	font-size: 25px;
+}
+
+.main {
+	width: 80vw;
+	margin: 20px auto;
+}
+
+.main .form_area {
+	margin-bottom: 10px;
+}
+
+.main .row .form_input {
+	padding-right: 0px;
+}
+
+.main .row .form_button {
+	padding-left: 5px;
+}
+
+.border_style_radius {
+	border-Radius: 0px;
+}
+
+.span_style {
+	font-size: 12px;
+	margin: 0 5px 0 0;
+}

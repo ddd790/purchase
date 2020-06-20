@@ -1,28 +1,44 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Add order</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Add order</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1>Add order</h1>
-	<form action="#" th:action="@{/addOrder}" th:object="${order}"
-		method="post">
-		<p>
-			PROJECT_CODE: <input type="text" th:field="*{PROJECT_CODE}" />
-		</p>
-		<p>
-			TITLE: <input type="text" th:field="*{TITLE}" />
-		</p>
-		<p>
-			COMPANY_NAME: <input type="text" th:field="*{COMPANY_NAME}" />
-		</p>
-		<p>
-			CONTRACT_USER_CODE: <input type="text" th:field="*{CONTRACT_USER_CODE}" />
-		</p>
-		<p>
-			<input type="submit" value="Submit" /> <input type="reset"
-				value="Reset" />
-		</p>
-	</form>
+	<div class="header">
+    	<div class="title">
+    		Add order
+    	</div>
+    </div>
+    <div class="main">
+	    <form role="form" class="form_area" th:action="@{/addOrder}" th:object="${order}" method="post">
+	    	<div class="form-group">
+			    <label for="project_code">PROJECT_CODE:</label>
+			    <input type="text" class="form-control" id="project_code" th:field="*{PROJECT_CODE}" placeholder="">
+			 </div>
+			 <div class="form-group">
+			    <label for="project_title">TITLE:</label>
+			    <input type="text" class="form-control" id="project_title" th:field="*{TITLE}" placeholder="">
+			 </div>
+			 <div class="form-group">
+			    <label for="company_name">COMPANY_NAME:</label>
+			    <input type="text" class="form-control" id="company_name" th:field="*{COMPANY_NAME}" placeholder="">
+			 </div>
+			 <div class="form-group">
+			    <label for="contract_user_code">CONTRACT_USER_CODE:</label>
+			    <input type="text" class="form-control" id="contract_user_code" th:field="*{CONTRACT_USER_CODE}" placeholder="">
+			 </div>
+			 <button type="submit" class="btn btn-primary">Submit</button>
+			 <button type="button" class="btn btn-default" onclick="resetForm()">reset</button>
+	    </form>
+    </div>
 </body>
+<script type="text/javascript">
+function resetForm() {
+	$("input[type=text]").val('');
+}
+</script>
