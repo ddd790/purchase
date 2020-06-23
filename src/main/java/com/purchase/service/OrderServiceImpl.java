@@ -22,4 +22,9 @@ public class OrderServiceImpl implements OrderServiceInterface{
 	public List<Order> getOrders() {
 		return orderDao.getOrders();
 	}
+
+	@Override
+	public Order getOrderBySEQ(int seq) {
+		return orderDao.getOrderBySEQ(seq);
+	}
 }

@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.purchase.Utils;
 import com.purchase.entity.Order;
 
 @Repository
@@ -36,11 +37,18 @@ public class OrderDao {
 	    public Order mapRow(ResultSet rs, int rowNum) throws SQLException {
 	        // 对数据的返回处理
 	        Order order = new Order();
+	        order.setSEQ(rs.getInt("SEQ"));
 	        order.setPROJECT_CODE(rs.getString("PROJECT_CODE"));
 	        order.setTITLE(rs.getString("TITLE"));
 	        order.setCOMPANY_NAME(rs.getString("COMPANY_NAME"));
 	        return order;
 	    }
+	}
+	
+	public Order getOrderBySEQ(int seq) {
+		String sql = "select * from orders where SEQ = " + seq;
+		List<Order> result = jdbcTemplate.query(sql, new OrderRowMapper());
+		return Utils.isNullList(result) ? null : result.get(0);
 	}
 
 }

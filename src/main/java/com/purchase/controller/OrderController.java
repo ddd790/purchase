@@ -34,4 +34,11 @@ public class OrderController {
 		int i = orderService.addOrder(order);
 		return i > 0 ? "success" : "failed";
 	}
+	
+	@RequestMapping(value = "modifyOrder", method = RequestMethod.GET)
+	public String modifyOrderForm(Model model, int seq) {
+		Order order = orderService.getOrderBySEQ(seq);
+		model.addAttribute("order", order);
+		return "order_modify";
+	}
 }

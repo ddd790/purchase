@@ -42,7 +42,7 @@
 	            <td th:text="${order.TITLE}"/>
 	            <td th:text="${order.COMPANY_NAME}"/>
 	            <td>
-	            	<a href="" target="_blank">Detail</a>&nbsp;|&nbsp;
+	            	<a th:href="@{modifyOrder(seq=${order.SEQ})}" target="_blank">Detail</a>&nbsp;|&nbsp;
 	            	<a href="" target="_blank">Delete</a>
 	            </td>
 	        </tr>
