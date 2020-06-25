@@ -41,4 +41,17 @@ public class OrderController {
 		model.addAttribute("order", order);
 		return "order_modify";
 	}
+	
+	@PostMapping("/modifyOrder")
+	public String modifyOrderSubmit(@ModelAttribute Order order, String seq) {
+		order.setSEQ(Integer.parseInt(seq));
+		int i = orderService.modifyOrder(order);
+		return i > 0 ? "success" : "failed";
+	}
+	
+	@RequestMapping(value = "deleteOrder", method = RequestMethod.GET)
+	public String deleteOrder(String seq) {
+		int i = orderService.deleteOrder(Integer.parseInt(seq));
+		return i > 0 ? "success" : "failed";
+	}
 }

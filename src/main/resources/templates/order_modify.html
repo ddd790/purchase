@@ -15,7 +15,7 @@
     	</div>
     </div>
     <div class="main">
-	    <form role="form" class="form_area" th:action="@{/modifyOrder}" th:object="${order}" method="post">
+	    <form role="form" class="form_area" th:action="@{/modifyOrder(seq=*{SEQ})}" th:object="${order}" method="post">
 	    	<div class="form-group">
 			    <label for="project_code">PROJECT_CODE:</label>
 			    <input type="text" class="form-control" id="project_code" th:field="*{PROJECT_CODE}" placeholder="">

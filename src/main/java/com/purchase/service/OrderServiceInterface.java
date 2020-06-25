@@ -8,4 +8,6 @@ public interface OrderServiceInterface {
 	int addOrder(Order order);
 	List<Order> getOrders();
 	Order getOrderBySEQ(int seq);
+	int modifyOrder(Order order);
+	int deleteOrder(int seq);
 }
